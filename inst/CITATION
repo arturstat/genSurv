@@ -5,42 +5,58 @@ citHeader(
 );
 
 title <- "Generating multi-state survival data";
+author <- c(
+	person(
+		given = "Artur",
+		family = "Araujo",
+		role = c("aut", "cre"),
+		email = "artur.stat@gmail.com",
+		comment = c(ORCID = "0000-0003-1419-4208")
+	),
+	person(
+		given = "Luis",
+		family = "Meira-Machado",
+		role = "aut",
+		email = "lmachado@math.uminho.pt",
+		comment = c(ORCID = "0000-0002-8577-7665")
+	),
+	person(
+		given = "Susana",
+		family = "Faria",
+		role = "aut",
+		email = "sfaria@math.uminho.pt",
+		comment = c(ORCID = "0000-0001-8014-9902")
+	)
+);
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl=TRUE);
 vers <- paste("R package version", meta$Version);
 url <- paste("https://CRAN.R-project.org/package=", PKG, sep="");
 
-citEntry(
-	entry       = "Manual",
+bibentry(
+	bibtype     = "Manual",
 	title       = paste(PKG, ": ", title, sep=""),
-	author      = personList(
-                  as.person("Artur Ara\\'{u}jo"),
-                  as.person("Lu\\'{i}s Meira-Machado"),
-                  as.person("Susana Faria")
-                ),
+	author      = author,
 	year        = year,
 	note        = vers,
 	url         = url,
 	textVersion = paste(
     "Artur Araújo, Luís Meira-Machado and Susana Faria (", year, "). ",
     PKG, ": ", title, ". ", vers, " URL ", url, sep=""
-	)
+  )
 );
 
-citEntry(
-  entry       = "Article",
-  title       = "A simulation study comparing modeling approaches in an illness-death multi-state model",
-  author      = personList(
-                  as.person("Lu\\'{i}s Meira-Machado"),
-                  as.person("Susana Faria")
-                ),
-  journal     = "Communications in Statistics - Simulation and Computation",
-  issn        = "1532-4141",
-  year        = "2014",
-  volume      = "43",
-  number      = "5",
-  pages       = "929--946",
-  doi         = "10.1080/03610918.2012.718841",
-  textVersion = "Luís Meira-Machado and Susana Faria (2014).
-  “A simulation study comparing modeling approaches in an illness-death multi-state model”.
-  Communications in Statistics - Simulation and Computation, 43(5), 929-946. doi:10.1080/03610918.2012.718841"
+bibentry(
+	bibtype     = "Article",
+	title       = "A simulation study comparing modeling approaches in an illness-death multi-state model",
+	author      = author,
+	journal     = "Communications in Statistics - Simulation and Computation",
+	issn        = "1532-4141",
+	year        = "2014",
+	volume      = "43",
+	number      = "5",
+	pages       = "929--946",
+	doi         = "10.1080/03610918.2012.718841",
+	textVersion = "Luís Meira-Machado and Susana Faria (2014).
+	“A simulation study comparing modeling approaches in an illness-death multi-state model”.
+	Communications in Statistics - Simulation and Computation, 43(5), 929-946. doi:10.1080/03610918.2012.718841"
 );

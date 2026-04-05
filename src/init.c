@@ -19,14 +19,13 @@ static const R_CallMethodDef CallEntries[] = {
 };
 
 void attribute_visible R_init_genSurv(DllInfo *dll) {
-  R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
-  R_useDynamicSymbols(dll, FALSE);
-  #if defined(R_VERSION) && R_VERSION >= R_Version(2, 16, 0)
-  R_forceSymbols(dll, TRUE);
-  #endif
+	R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+	R_useDynamicSymbols(dll, FALSE);
+	#if defined(R_VERSION) && R_VERSION >= R_Version(2, 16, 0)
+	R_forceSymbols(dll, TRUE);
+	#endif
 
-  SEXP genSurv_NS = R_FindNamespace( mkString("genSurv") );
-  if (genSurv_NS == R_UnboundValue) error("missing 'genSurv' namespace: should never happen");
-  if ( !isEnvironment(genSurv_NS) ) error("'genSurv' namespace not determined correctly");
-  return;
+	SEXP genSurv_NS = R_FindNamespace( mkString("genSurv") );
+	if ( !isEnvironment(genSurv_NS) ) error("'genSurv' namespace not determined correctly");
+	return;
 } // R_init_genSurv
